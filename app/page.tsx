@@ -370,7 +370,7 @@ export default function PortfolioV2() {
                       >
                         {skill.items.map((item, idx) => (
                           <motion.div
-                            key={typeof item === 'string' ? item : item.name}
+                            key={typeof item === 'string' ? item : item}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.3, delay: idx * 0.1 }}
@@ -382,8 +382,8 @@ export default function PortfolioV2() {
                               <span className="text-sm">{item}</span>
                             ) : (
                               <>
-                                <div className="text-xl">{item.icon}</div>
-                                <span className="text-sm">{item.name}</span>
+                                <div className="text-xl">{item}</div>
+                                <span className="text-sm">{item}</span>
                               </>
                             )}
                           </motion.div>
