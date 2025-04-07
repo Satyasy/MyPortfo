@@ -1,5 +1,18 @@
 "use client"
 
+import {
+  FaGolang
+} from "react-icons/fa6"
+import {
+  FaVuejs, FaLaravel, FaAws, FaReact,
+} from "react-icons/fa";
+import {
+  BiLogoMongodb, BiLogoPostgresql
+} from "react-icons/bi";
+import {
+  RiNextjsLine, RiTailwindCssFill
+} from "react-icons/ri";
+import Image from "next/image"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import {
@@ -63,34 +76,38 @@ export default function PortfolioV2() {
     { id: "about", label: "Tentang Saya", icon: <User size={18} /> },
     { id: "projects", label: "Proyek", icon: <Briefcase size={18} /> },
     { id: "education", label: "Pendidikan", icon: <GraduationCap size={18} /> },
-    { id: "contact", label: "Kontak", icon: <Mail size={18} /> },
   ]
 
   const skills = [
-    { 
-      category: "Hard Skills", 
+    {
+      category: "Hard Skills",
       items: [
         "Cloud Computing (Juara 1 LKS Kabupaten & Techfest tingkat sekolah)",
         "Linux Dasar (Sertifikasi Aguna Course)",
-        "Dasar-Dasar Cloud Practitioner (Sertifikasi Dicoding)"
-      ] 
+        "Basic Cloud Practitioner (Sertifikasi Dicoding)"
+      ]
     },
-    { 
-      category: "Soft Skills", 
+    {
+      category: "Soft Skills",
       items: [
-        "Kepemimpinan Organisasi Siswa (Ketua MPK & DPK SMK Telkom Sidoarjo)",
+        "Kepemimpinan Organisasi Siswa (Ketua MPK (2024/2025) & DPK(2023/2024) SMK Telkom Sidoarjo)",
         "Manajemen Acara (Sie Sponsor Dies Natalis sekolah)",
-        "Kerja Tim & Penyelesaian Masalah"
-      ] 
-    },
-    { 
-      category: "Teknologi", 
-      items: [
-        "Golang", "NextJS", "React", "MongoDB", "PostgreSQL", 
-        "AWS", "Laravel", "Tailwind", "Vue"
-      ] 
+        "Kerja Sama Tim & Penyelesaian Masalah"
+      ]
     },
   ]
+
+  const technologies = [
+    { name: "Vue.js", icon: <FaVuejs className="text-green-500" /> },
+    { name: "Golang", icon: <FaGolang className="text-sky-600" /> },
+    { name: "Laravel", icon: <FaLaravel className="text-red-600" /> },
+    { name: "AWS", icon: <FaAws className="text-orange-500" /> },
+    { name: "MongoDB", icon: <BiLogoMongodb className="text-green-700" /> },
+    { name: "PostgreSQL", icon: <BiLogoPostgresql className="text-blue-600" /> },
+    { name: "Next.js", icon: <RiNextjsLine className="text-black dark:text-white" /> },
+    { name: "React", icon: <FaReact className="text-cyan-400" /> },
+    { name: "Tailwind CSS", icon: <RiTailwindCssFill className="text-sky-400" /> },
+  ];
 
   const projects = [
     {
@@ -121,35 +138,35 @@ export default function PortfolioV2() {
 
   const education = [
     {
-      period: "2020 - 2023",
+      period: "2020-2023",
+      title: "SMP Al-Kautsar",
+      institution: "Yayasan Askandariyah",
+      description: "Belajar Ilmu Rohani dan Dasar-dasar Teknologi"
+    },
+    {
+      period: "2023-2027",
       title: "SMK Telkom Sidoarjo",
-      institution: "Jurusan Cloud Computing",
-      description: "Fokus pada pengembangan keterampilan cloud computing dan teknologi informasi.",
+      institution: "Sistem Informasi Jaringan & Aplikasi",
+      description: "Fokus pada pengembangan software, Jaringan serta pada peminatan bidang Cloud Computing.",
     },
     {
-      period: "2023",
-      title: "Sertifikasi Linux Dasar",
-      institution: "Aguna Course",
-      description: "Pelatihan intensif dalam penggunaan dan manajemen sistem operasi Linux.",
-    },
-    {
-      period: "Saat ini",
-      title: "Sertifikasi Cloud Practitioner",
-      institution: "Dicoding",
-      description: "Mempelajari prinsip-prinsip dasar layanan cloud dan implementasinya.",
+      period: "2027-????",
+      title: "Coming Soon...",
+      institution: "N/A",
+      description: "Semoga Mimpi yang di diinginkan bisa tercapai.",
     },
   ]
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-[#0f172a] text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-[#0f172a]/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/0 dark:bg-[#0f172a]/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
         <div className="container mx-auto px-4 flex justify-between items-center h-16">
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-indigo-500 flex items-center justify-center text-white font-bold">
-              ME
+              <img src="/images/icon-nav.svg" alt="icon-navbar" />
             </div>
-            <span className="font-bold text-xl hidden sm:block">Portfolio Saya</span>
+            <span className="font text-xl hidden sm:block">Revano</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -158,11 +175,10 @@ export default function PortfolioV2() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className={`px-4 py-2 rounded-md transition-colors ${
-                  activeSection === item.id
-                    ? "bg-gray-100 dark:bg-gray-800 text-purple-500 dark:text-purple-400"
-                    : "hover:bg-gray-100 dark:hover:bg-gray-800/50"
-                }`}
+                className={`px-4 py-2 rounded-md transition-colors ${activeSection === item.id
+                  ? "bg-gray-100 dark:bg-gray-800 text-purple-500 dark:text-purple-400"
+                  : "hover:bg-gray-100 dark:hover:bg-gray-800/50"
+                  }`}
               >
                 {item.label}
               </a>
@@ -171,7 +187,7 @@ export default function PortfolioV2() {
 
           <div className="flex items-center gap-2">
             <Button variant="ghost" size="icon" onClick={() => setDarkMode(!darkMode)} className="rounded-full">
-              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+              {darkMode ? <Sun size={25} /> : <Moon size={25} />}
             </Button>
 
             <Button
@@ -183,9 +199,9 @@ export default function PortfolioV2() {
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </Button>
 
-            <Button className="hidden md:flex bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white border-0">
-              Hubungi Saya
-            </Button>
+            {/* <Button className="hidden md:flex bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white border-0">
+              Contack Me!
+            </Button> */}
           </div>
         </div>
       </header>
@@ -232,41 +248,40 @@ export default function PortfolioV2() {
                 className="order-2 md:order-1"
               >
                 <Badge className="mb-4 bg-purple-500/10 text-purple-500 dark:bg-purple-400/10 dark:text-purple-400 hover:bg-purple-500/20 dark:hover:bg-purple-400/20">
-                  Cloud Computing & Web Development
+                  Cloud Engineer & Web Developer
                 </Badge>
                 <h1 className="text-4xl md:text-6xl font-bold mb-4">
                   Halo, Saya{" "}
                   <span className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent">
-                    Developer
+                    Revano!
                   </span>
                 </h1>
                 <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                  Pengembang cloud dan web yang bersemangat untuk menciptakan pengalaman digital yang menarik dan fungsional.
+                  Seorang siswa yang gemar di bidang cloud dan web dan bersemangat untuk menciptakan pengalaman digital yang menarik dan fungsional.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <Button className="bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white border-0">
-                    Lihat proyek <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                  <Button variant="outline" className="border-gray-300 dark:border-gray-700">
-                    Unduh CV
-                  </Button>
+                  <a href="https://github.com/Satyasy">
+                    <Button className="bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white border-0">
+                      Lihat proyek <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </a>
                 </div>
 
                 <div className="mt-12 flex gap-4">
                   <a
-                    href="#"
+                    href="https://github.com/Satyasy" target="_blank" rel="noopener noreferrer"
                     className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-purple-500 dark:hover:text-purple-400 transition-colors"
                   >
                     <Github size={20} />
                   </a>
                   <a
-                    href="#"
+                    href="https://linkedin.com/in/restyand1011" target="_blank" rel="noopener noreferrer"
                     className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-purple-500 dark:hover:text-purple-400 transition-colors"
                   >
                     <Linkedin size={20} />
                   </a>
                   <a
-                    href="#"
+                    href="mailto:revanosatya123@gmail.com" target="_blank" rel="noopener noreferrer"
                     className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-purple-500 dark:hover:text-purple-400 transition-colors"
                   >
                     <Mail size={20} />
@@ -284,7 +299,7 @@ export default function PortfolioV2() {
                   <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 blur-3xl opacity-20 absolute -inset-4"></div>
                   <div className="w-64 h-64 md:w-80 md:h-80 rounded-full border-2 border-gray-200 dark:border-gray-800 overflow-hidden relative z-10">
                     <img
-                      src="/placeholder.svg?height=400&width=400"
+                      src="/images/profile.jpg?height=400&width=400"
                       alt="Foto profil"
                       className="w-full h-full object-cover"
                     />
@@ -300,16 +315,17 @@ export default function PortfolioV2() {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center mb-16">
               <Badge className="mb-4 bg-purple-500/10 text-purple-500 dark:bg-purple-400/10 dark:text-purple-400">
-                Tentang Saya
+                About Me!
               </Badge>
               <h2 className="text-3xl font-bold mb-4">Kenali Saya Lebih Baik</h2>
               <p className="text-gray-600 dark:text-gray-300">
-                Saya adalah seorang pengembang cloud dengan passion untuk mempelajari teknologi baru dan menciptakan solusi inovatif.
+                Saya adalah seorang Siswa yang memiliki minat di bidang cloud dengan passion untuk mempelajari teknologi baru dan menciptakan solusi inovatif.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              {/* Kolom Kiri */}
+              <div className="h-full">
                 <h3 className="text-2xl font-semibold mb-4">Perjalanan Saya</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-6">
                   Saya adalah pengembang cloud dengan keahlian di berbagai teknologi web. Saya telah memenangkan berbagai kompetisi di bidang Cloud Computing termasuk Juara 1 LKS Kabupaten dan Techfest tingkat sekolah.
@@ -320,20 +336,23 @@ export default function PortfolioV2() {
 
                 <div className="grid grid-cols-2 gap-4 mt-8">
                   <div className="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-sm">
-                    <div className="text-3xl font-bold text-purple-500 dark:text-purple-400 mb-1">550</div>
-                    <div className="text-gray-600 dark:text-gray-300">Skor TOEIC</div>
+                    <div className="text-3xl font-bold text-purple-500 dark:text-purple-400 mb-1">550/990</div>
+                    <div className="text-gray-600 dark:text-gray-300">Skor TOEIC (B1 Intermediate)</div>
                   </div>
                   <div className="p-4 rounded-lg bg-white dark:bg-gray-800 shadow-sm">
-                    <div className="text-3xl font-bold text-indigo-500 dark:text-indigo-400 mb-1">594</div>
+                    <div className="text-3xl font-bold text-indigo-500 dark:text-indigo-400 mb-1">594/800</div>
                     <div className="text-gray-600 dark:text-gray-300">Skor UKBI (Unggul)</div>
                   </div>
                 </div>
               </div>
 
-              <div>
+              {/* Kolom Kanan */}
+              <motion.div layout className="h-full">
                 <h3 className="text-2xl font-semibold mb-6">Keterampilan Saya</h3>
+
                 <Tabs defaultValue="Hard Skills" className="w-full">
-                  <TabsList className="grid grid-cols-3 mb-6">
+                  {/* Tombol Tab */}
+                  <TabsList className="grid grid-cols-2 mb-6">
                     {skills.map((skill) => (
                       <TabsTrigger key={skill.category} value={skill.category}>
                         {skill.category}
@@ -341,28 +360,48 @@ export default function PortfolioV2() {
                     ))}
                   </TabsList>
 
+                  {/* Isi Tab */}
                   {skills.map((skill) => (
                     <TabsContent key={skill.category} value={skill.category} className="mt-0">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        {skill.items.map((item) => (
-                          <div
-                            key={item}
-                            className="p-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center gap-2"
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4 }}
+                        viewport={{ once: true }}
+                        className="grid grid-cols-1 md:grid-cols-2 gap-4"
+                      >
+                        {skill.items.map((item, idx) => (
+                          <motion.div
+                            key={typeof item === 'string' ? item : item.name}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.3, delay: idx * 0.1 }}
+                            viewport={{ once: true }}
+                            className="p-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center gap-3 shadow-sm hover:shadow-md transition-shadow"
                           >
                             <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500"></div>
-                            <span>{item}</span>
-                          </div>
+                            {typeof item === "string" ? (
+                              <span className="text-sm">{item}</span>
+                            ) : (
+                              <>
+                                <div className="text-xl">{item.icon}</div>
+                                <span className="text-sm">{item.name}</span>
+                              </>
+                            )}
+                          </motion.div>
                         ))}
-                      </div>
+                      </motion.div>
                     </TabsContent>
                   ))}
                 </Tabs>
-              </div>
+              </motion.div>
+
             </div>
           </div>
         </section>
 
-        {/* Projects Section */}
+
+        {/* Projects Section
         <section id="projects" className="py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center mb-16">
@@ -434,7 +473,7 @@ export default function PortfolioV2() {
               </Button>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Education Section */}
         <section id="education" className="py-20 bg-gray-100 dark:bg-gray-900/50">
@@ -443,8 +482,8 @@ export default function PortfolioV2() {
               <Badge className="mb-4 bg-purple-500/10 text-purple-500 dark:bg-purple-400/10 dark:text-purple-400">
                 Pendidikan
               </Badge>
-              <h2 className="text-3xl font-bold mb-4">Latar Belakang Pendidikan Saya</h2>
-              <p className="text-gray-600 dark:text-gray-300">Perjalanan pendidikan dan pelatihan profesional saya.</p>
+              <h2 className="text-3xl font-bold mb-4">Latar Belakang Pendidikan</h2>
+              <p className="text-gray-600 dark:text-gray-300">Perjalanan pendidikan.</p>
             </div>
 
             <div className="max-w-4xl mx-auto">
@@ -482,120 +521,38 @@ export default function PortfolioV2() {
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section id="contact" className="py-20">
+        <section id="about" className="py-20 bg-gray-100 dark:bg-gray-900/50">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center mb-16">
               <Badge className="mb-4 bg-purple-500/10 text-purple-500 dark:bg-purple-400/10 dark:text-purple-400">
-                Kontak
+                Arch
               </Badge>
-              <h2 className="text-3xl font-bold mb-4">Mari Berbicara</h2>
+              <h2 className="text-3xl font-bold mb-4">Tentang Teknologi yang Saya Pelajari</h2>
               <p className="text-gray-600 dark:text-gray-300">
-                Tertarik untuk bekerja sama atau memiliki pertanyaan?
+                Dalam Project yang telah saya buat, saya mempelajari dan menguasai Services maupun Bahas Pemrograman yang relevan.
               </p>
             </div>
-
-            <div className="max-w-5xl mx-auto">
-              <Card className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 overflow-hidden">
-                <div className="grid md:grid-cols-5">
-                  <div className="md:col-span-2 bg-gradient-to-br from-purple-500 to-indigo-500 p-8 text-white">
-                    <h3 className="text-2xl font-semibold mb-6">Informasi Kontak</h3>
-                    <p className="mb-8 opacity-90">
-                      Isi formulir dan saya akan menghubungi Anda sesegera mungkin.
-                    </p>
-
-                    <div className="space-y-6">
-                      <div className="flex items-center gap-4">
-                        <div className="p-2 rounded-full bg-white/20">
-                          <Mail size={20} />
-                        </div>
-                        <span>email@contoh.com</span>
-                      </div>
-                      <div className="flex items-center gap-4">
-                        <div className="p-2 rounded-full bg-white/20">
-                          <Github size={20} />
-                        </div>
-                        <span>github.com/username</span>
-                      </div>
-                      <div className="flex items-center gap-4">
-                        <div className="p-2 rounded-full bg-white/20">
-                          <Linkedin size={20} />
-                        </div>
-                        <span>linkedin.com/in/username</span>
-                      </div>
-                    </div>
-
-                    <div className="absolute bottom-8 left-8 right-8 opacity-10">
-                      <Code size={180} />
-                    </div>
-                  </div>
-
-                  <div className="md:col-span-3 p-8">
-                    <form className="space-y-6">
-                      <div className="grid grid-cols-2 gap-6">
-                        <div>
-                          <label
-                            htmlFor="name"
-                            className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300"
-                          >
-                            Nama
-                          </label>
-                          <input
-                            type="text"
-                            id="name"
-                            className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400"
-                          />
-                        </div>
-                        <div>
-                          <label
-                            htmlFor="email"
-                            className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300"
-                          >
-                            Email
-                          </label>
-                          <input
-                            type="email"
-                            id="email"
-                            className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400"
-                          />
-                        </div>
-                      </div>
-                      <div>
-                        <label
-                          htmlFor="subject"
-                          className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300"
-                        >
-                          Subjek
-                        </label>
-                        <input
-                          type="text"
-                          id="subject"
-                          className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400"
-                        />
-                      </div>
-                      <div>
-                        <label
-                          htmlFor="message"
-                          className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300"
-                        >
-                          Pesan
-                        </label>
-                        <textarea
-                          id="message"
-                          rows={5}
-                          className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400"
-                        />
-                      </div>
-                      <Button className="w-full bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white border-0">
-                        Kirim Pesan
-                      </Button>
-                    </form>
-                  </div>
-                </div>
-              </Card>
-            </div>
           </div>
+          <section className="mt-10">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4 place-items-center">
+              {technologies.map((tech, index) => (
+                <motion.div
+                  key={tech.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05 }}
+                  className="flex flex-col items-center justify-center text-center gap-2 p-4 "
+                >
+                  <div className="text-5xl">{tech.icon}</div>
+                  <span className="text-sm font-medium">{tech.name}</span>
+                </motion.div>
+              ))}
+            </div>
+          </section>
         </section>
+
       </main>
       {/* Footer */}
       <footer className="py-8 border-t border-gray-200 dark:border-gray-800">
@@ -603,9 +560,9 @@ export default function PortfolioV2() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center gap-2 mb-4 md:mb-0">
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-teal-400 to-indigo-500 flex items-center justify-center text-white font-bold text-xs">
-                Me
+                <img src="/images/icon-nav.svg" alt="" />
               </div>
-              <span className="font-bold">Revano</span>
+              <span className="font">Revano</span>
             </div>
 
             <div className="text-gray-500 dark:text-gray-400 text-sm">
@@ -614,19 +571,19 @@ export default function PortfolioV2() {
 
             <div className="flex gap-4 mt-4 md:mt-0">
               <a
-                href="#"
+                href="https://github.com/Satyasy" target="_blank" rel="noopener nopreferrer"
                 className="text-gray-500 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
               >
                 <Github size={18} />
               </a>
               <a
-                href="#"
+                href="https://linkedin.com/in/restyand1011" target="_blank" rel="noopener noreferrer"
                 className="text-gray-500 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
               >
                 <Linkedin size={18} />
               </a>
               <a
-                href="#"
+                href="mailto:revanosatya123@gmail.com" target="_blank" rel="noopener nopreferrer"
                 className="text-gray-500 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
               >
                 <Mail size={18} />
