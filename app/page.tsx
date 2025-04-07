@@ -12,7 +12,6 @@ import {
 import {
   RiNextjsLine, RiTailwindCssFill
 } from "react-icons/ri";
-import Image from "next/image"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import {
@@ -23,7 +22,6 @@ import {
   Mail,
   Github,
   Linkedin,
-  ExternalLink,
   ChevronRight,
   Menu,
   X,
@@ -109,32 +107,32 @@ export default function PortfolioV2() {
     { name: "Tailwind CSS", icon: <RiTailwindCssFill className="text-sky-400" /> },
   ];
 
-  const projects = [
-    {
-      title: "Aplikasi E-commerce",
-      description: "Aplikasi e-commerce dengan keranjang belanja dan gateway pembayaran.",
-      technologies: ["React", "Node.js", "MongoDB"],
-      image: "/placeholder.svg?height=200&width=350",
-      github: "#",
-      demo: "#",
-    },
-    {
-      title: "Task Manager",
-      description: "Aplikasi untuk mengelola tugas harian dengan fungsionalitas drag and drop.",
-      technologies: ["JavaScript", "HTML", "CSS"],
-      image: "/placeholder.svg?height=200&width=350",
-      github: "#",
-      demo: "#",
-    },
-    {
-      title: "Aplikasi Cuaca",
-      description: "Aplikasi yang menampilkan cuaca saat ini dan perkiraan menggunakan API eksternal.",
-      technologies: ["React", "API REST", "Tailwind CSS"],
-      image: "/placeholder.svg?height=200&width=350",
-      github: "#",
-      demo: "#",
-    },
-  ]
+  // const projects = [
+  //   {
+  //     title: "Aplikasi E-commerce",
+  //     description: "Aplikasi e-commerce dengan keranjang belanja dan gateway pembayaran.",
+  //     technologies: ["React", "Node.js", "MongoDB"],
+  //     image: "/placeholder.svg?height=200&width=350",
+  //     github: "#",
+  //     demo: "#",
+  //   },
+  //   {
+  //     title: "Task Manager",
+  //     description: "Aplikasi untuk mengelola tugas harian dengan fungsionalitas drag and drop.",
+  //     technologies: ["JavaScript", "HTML", "CSS"],
+  //     image: "/placeholder.svg?height=200&width=350",
+  //     github: "#",
+  //     demo: "#",
+  //   },
+  //   {
+  //     title: "Aplikasi Cuaca",
+  //     description: "Aplikasi yang menampilkan cuaca saat ini dan perkiraan menggunakan API eksternal.",
+  //     technologies: ["React", "API REST", "Tailwind CSS"],
+  //     image: "/placeholder.svg?height=200&width=350",
+  //     github: "#",
+  //     demo: "#",
+  //   },
+  // ]
 
   const education = [
     {
