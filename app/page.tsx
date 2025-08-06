@@ -4,7 +4,7 @@ import {
   FaGolang
 } from "react-icons/fa6"
 import {
-  FaVuejs, FaLaravel, FaAws, FaReact,
+  FaLaravel, FaAws, FaReact, FaPython
 } from "react-icons/fa";
 import {
   BiLogoMongodb, BiLogoPostgresql
@@ -29,11 +29,13 @@ import {
   Moon,
   Sun,
 } from "lucide-react"
-
+import { HiOutlineExternalLink } from "react-icons/hi"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import Image from 'next/image'
+import { SiMysql } from "react-icons/si";
 
 export default function PortfolioV2() {
   const [activeSection, setActiveSection] = useState("home")
@@ -96,43 +98,45 @@ export default function PortfolioV2() {
   ]
 
   const technologies = [
-    { name: "Vue.js", icon: <FaVuejs className="text-green-500" /> },
     { name: "Golang", icon: <FaGolang className="text-sky-600" /> },
     { name: "Laravel", icon: <FaLaravel className="text-red-600" /> },
     { name: "AWS", icon: <FaAws className="text-orange-500" /> },
-    { name: "MongoDB", icon: <BiLogoMongodb className="text-green-700" /> },
+    { name: "Python", icon: <img width="48" height="48" src="https://img.icons8.com/color/48/python--v1.png" alt="python--v1" /> },
+    // { name: "MongoDB", icon: <BiLogoMongodb className="text-green-700" /> },
+    { name: "Mysql", icon: <img width="48" height="48" src="https://img.icons8.com/fluency/48/mysql-logo.png" alt="mysql-logo" /> },
     { name: "PostgreSQL", icon: <BiLogoPostgresql className="text-blue-600" /> },
-    { name: "Next.js", icon: <RiNextjsLine className="text-black dark:text-white" /> },
-    { name: "React", icon: <FaReact className="text-cyan-400" /> },
+    { name: "NextjS", icon: <RiNextjsLine className="text-black dark:text-white" /> },
+    { name: "ReactJS", icon: <FaReact className="text-cyan-400" /> },
     { name: "Tailwind CSS", icon: <RiTailwindCssFill className="text-sky-400" /> },
+    { name: "GCP", icon: <img width="48" height="48" src="https://img.icons8.com/color/48/google-cloud.png" alt="google-cloud" /> }
   ];
 
-  // const projects = [
-  //   {
-  //     title: "Aplikasi E-commerce",
-  //     description: "Aplikasi e-commerce dengan keranjang belanja dan gateway pembayaran.",
-  //     technologies: ["React", "Node.js", "MongoDB"],
-  //     image: "/placeholder.svg?height=200&width=350",
-  //     github: "#",
-  //     demo: "#",
-  //   },
-  //   {
-  //     title: "Task Manager",
-  //     description: "Aplikasi untuk mengelola tugas harian dengan fungsionalitas drag and drop.",
-  //     technologies: ["JavaScript", "HTML", "CSS"],
-  //     image: "/placeholder.svg?height=200&width=350",
-  //     github: "#",
-  //     demo: "#",
-  //   },
-  //   {
-  //     title: "Aplikasi Cuaca",
-  //     description: "Aplikasi yang menampilkan cuaca saat ini dan perkiraan menggunakan API eksternal.",
-  //     technologies: ["React", "API REST", "Tailwind CSS"],
-  //     image: "/placeholder.svg?height=200&width=350",
-  //     github: "#",
-  //     demo: "#",
-  //   },
-  // ]
+  const projects = [
+    {
+      title: "Aplikasi Lumbung Hijau",
+      description: "Aplikasi Lumbung Hijau yang digunakan sebagai platform Bank Sampah ",
+      technologies: ["Laravel", "React Native", "Mysql"],
+      image: "/placeholder.svg?height=200&width=350",
+      github: "#",
+      demo: "#",
+    },
+    {
+      title: "Medibot",
+      description: "Platform Kesehatan berbasis Web App untuk mendiagnosa penyakit awal pasien menggunakan Chatbot berbasis GeminiAI",
+      technologies: ["Laravel", "Gemini", "Mysql"],
+      image: "/placeholder.svg?height=200&width=350",
+      github: "#",
+      demo: "#",
+    },
+    {
+      title: "Coffeshop Artisan-Brew",
+      description: "Web Aplikasi Coffeshop dibuat menggunakan Laravel-PHP, Bootstrap",
+      technologies: ["Laravel", "API REST", "Mariadb", "Filament"],
+      image: "/placeholder.svg?height=200&width=350",
+      github: "#",
+      demo: "#",
+    },
+  ]
 
   const education = [
     {
@@ -162,7 +166,13 @@ export default function PortfolioV2() {
         <div className="container mx-auto px-4 flex justify-between items-center h-16">
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-indigo-500 flex items-center justify-center text-white font-bold">
-              <img src="/images/icon-nav.svg" alt="icon-navbar" />
+              <Image
+                src="/images/icon-nav.svg"
+                alt="icon-navbar"
+                width={24}
+                height={24}
+                unoptimized
+              />
             </div>
             <span className="font text-xl hidden sm:block">Revano</span>
           </div>
@@ -296,10 +306,14 @@ export default function PortfolioV2() {
                 <div className="relative">
                   <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 blur-3xl opacity-20 absolute -inset-4"></div>
                   <div className="w-64 h-64 md:w-80 md:h-80 rounded-full border-2 border-gray-200 dark:border-gray-800 overflow-hidden relative z-10">
-                    <img
-                      src="/images/profile.jpg?height=400&width=400"
+                    <Image
+                      src="/images/profile.jpg"
                       alt="Foto profil"
+                      width={400}
+                      height={400}
                       className="w-full h-full object-cover"
+                      priority
+                      unoptimized
                     />
                   </div>
                 </div>
@@ -399,7 +413,7 @@ export default function PortfolioV2() {
         </section>
 
 
-        {/* Projects Section
+        {/* Projects Section */}
         <section id="projects" className="py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center mb-16">
@@ -423,10 +437,13 @@ export default function PortfolioV2() {
                 >
                   <Card className="overflow-hidden h-full bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
                     <div className="relative">
-                      <img
-                        src={project.image || "/placeholder.svg"}
+                      <Image
+                        src={project.image}
                         alt={project.title}
+                        width={350}
+                        height={200}
                         className="w-full h-48 object-cover"
+                        unoptimized
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end justify-between p-4">
                         <div className="flex gap-3">
@@ -440,7 +457,7 @@ export default function PortfolioV2() {
                             href={project.demo}
                             className="p-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors"
                           >
-                            <ExternalLink size={18} className="text-white" />
+                            <HiOutlineExternalLink size={18} className="text-white" />
                           </a>
                         </div>
                       </div>
@@ -471,7 +488,7 @@ export default function PortfolioV2() {
               </Button>
             </div>
           </div>
-        </section> */}
+        </section>
 
         {/* Education Section */}
         <section id="education" className="py-20 bg-gray-100 dark:bg-gray-900/50">
@@ -558,7 +575,13 @@ export default function PortfolioV2() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center gap-2 mb-4 md:mb-0">
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-teal-400 to-indigo-500 flex items-center justify-center text-white font-bold text-xs">
-                <img src="/images/icon-nav.svg" alt="" />
+                <Image
+                  src="/images/icon-nav.svg"
+                  alt="icon"
+                  width={32}
+                  height={32}
+                  unoptimized
+                />
               </div>
               <span className="font">Revano</span>
             </div>
