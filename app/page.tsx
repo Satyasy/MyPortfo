@@ -4,10 +4,11 @@ import {
   FaGolang
 } from "react-icons/fa6"
 import {
-  FaLaravel, FaAws, FaReact, FaPython
+  FaLaravel, FaAws, FaReact
 } from "react-icons/fa";
 import {
-  BiLogoMongodb, BiLogoPostgresql
+  // BiLogoMongodb, 
+  BiLogoPostgresql
 } from "react-icons/bi";
 import {
   RiNextjsLine, RiTailwindCssFill
@@ -35,8 +36,6 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Image from 'next/image'
-import { SiMysql } from "react-icons/si";
-
 export default function PortfolioV2() {
   const [activeSection, setActiveSection] = useState("home")
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
