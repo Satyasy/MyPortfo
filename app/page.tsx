@@ -115,24 +115,24 @@ export default function PortfolioV2() {
       title: "Aplikasi Lumbung Hijau",
       description: "Aplikasi Lumbung Hijau yang digunakan sebagai platform Bank Sampah ",
       technologies: ["Laravel", "React Native", "Mysql"],
-      image: "/placeholder.svg?height=200&width=350",
-      github: "#",
-      demo: "#",
+      image: "/images/lumbung.png",
+      github: "https://github.com/Satyasy/introLumbungHijau",
+      demo: "https://lumbunghijau.my.id/",
     },
     {
       title: "Medibot",
       description: "Platform Kesehatan berbasis Web App untuk mendiagnosa penyakit awal pasien menggunakan Chatbot berbasis GeminiAI",
-      technologies: ["Laravel", "Gemini", "Mysql"],
-      image: "/placeholder.svg?height=200&width=350",
-      github: "#",
+      technologies: ["Laravel", "Gemini API", "Mysql"],
+      image: "/images/medibot.png",
+      github: "https://github.com/Satyasy/medibot.git",
       demo: "#",
     },
     {
-      title: "Coffeshop Artisan-Brew",
-      description: "Web Aplikasi Coffeshop dibuat menggunakan Laravel-PHP, Bootstrap",
-      technologies: ["Laravel", "API REST", "Mariadb", "Filament"],
-      image: "/placeholder.svg?height=200&width=350",
-      github: "#",
+      title: "Retro Arcade Shooter",
+      description: "Game simple yang dibuat untuk Challenge AmazonQCLI",
+      technologies: ["Pygame", "Python", "Amazon Q"],
+      image: "/images/amazonqcli.png",
+      github: "https://github.com/Satyasy/arcade-qcli",
       demo: "#",
     },
   ]
@@ -255,7 +255,7 @@ export default function PortfolioV2() {
                 className="order-2 md:order-1"
               >
                 <Badge className="mb-4 bg-purple-500/10 text-purple-500 dark:bg-purple-400/10 dark:text-purple-400 hover:bg-purple-500/20 dark:hover:bg-purple-400/20">
-                  Cloud Engineer & Web Developer
+                  Cloud Engineer & Backend Engineer
                 </Badge>
                 <h1 className="text-4xl md:text-6xl font-bold mb-4">
                   Halo, Saya{" "}
@@ -306,7 +306,7 @@ export default function PortfolioV2() {
                   <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 blur-3xl opacity-20 absolute -inset-4"></div>
                   <div className="w-64 h-64 md:w-80 md:h-80 rounded-full border-2 border-gray-200 dark:border-gray-800 overflow-hidden relative z-10">
                     <Image
-                      src="/images/profile.jpg"
+                      src="/images/Wepphotoprofil.webp"
                       alt="Foto profil"
                       width={400}
                       height={400}
